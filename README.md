@@ -161,7 +161,7 @@ This project only monitors **public** playlists. It does not access private play
 
 ---
 
-# stalkify-but-legal
+# Stalkify-Legal-But-Maybe-Unethical
 
 > Birinin Spotify playlistlerini takip ediyorsun çünkü meraklısın, creep değilsin. Muhtemelen.
 
@@ -320,4 +320,4 @@ Workflow'u **Actions** sekmesinden manuel olarak da tetikleyebilirsin.
 
 ## Etik sorumluluk reddi
 
-Bu proje yalnızca **herkese açık** playlistleri izler. Özel playlistlere, kullanıcı hesaplarına ya da Spotify linki olan herkesin zaten göremeyeceği hiçbir veriye zaten erişemez. Birinin müzik zevkini otomatik olarak takip etmek tuhaf mı? Bence tuhaf, ama yalnız olmadığımı biliyorum.
+Bu proje yalnızca **herkese açık** playlistleri izler. Özel playlistlere, kullanıcı hesaplarına ya da Spotify linki olan herkesin zaten göremeyeceği hiçbir veriye erişemez. Birinin müzik zevkini otomatik olarak takip etmek tuhaf mı? Bence tuhaf, ama yalnız olmadığımı biliyorum.
