@@ -1,6 +1,4 @@
-# stalkify-but-legal
-
-> Monitoring someone's Spotify playlists because you're curious, not creepy. Probably.
+# Stalkify-Legal-But-Maybe-Unethical
 
 A Python service that watches public Spotify playlists for new track additions and sends you a Telegram notification the moment something gets added. Runs automatically every 30 minutes via GitHub Actions, costs nothing, and lives rent-free in your head — just like the person whose playlists you're watching.
 
@@ -157,7 +155,7 @@ You can also trigger the workflow manually from the **Actions** tab.
 
 ## Ethical disclaimer
 
-This project only monitors **public** playlists. It does not access private playlists, user accounts, or any data that isn't already visible to anyone with a Spotify link. Whether it's weird to set up automated surveillance of someone's music taste is a question best left to your therapist.
+This project only monitors **public** playlists. It does not access private playlists, user accounts, or any data that isn't already visible to anyone with a Spotify link. Is it weird to automatically track someone's taste in music? I think it's weird, but I know I'm not alone.
 
 ---
 
@@ -167,7 +165,7 @@ This project only monitors **public** playlists. It does not access private play
 
 > Birinin Spotify playlistlerini takip ediyorsun çünkü meraklısın, creep değilsin. Muhtemelen.
 
-Herkese açık Spotify playlistlerini izleyen ve yeni bir şarkı eklendiği anda sana Telegram bildirimi gönderen bir Python servisi. GitHub Actions üzerinden 30 dakikada bir otomatik çalışır, ücretsizdir ve kafa yorduğu kişi gibi kafanda kira ödemeden oturur.
+Herkese açık Spotify playlistlerini izleyen ve yeni bir şarkı eklendiği anda sana Telegram bildirimi gönderen bir Python servisi. GitHub Actions üzerinden 30 dakikada bir otomatik çalışır, ücretsizdir ve Genius veya Spotify adamlarını peşime takmadığı sürece çalışacak.
 
 ---
 
@@ -322,4 +320,4 @@ Workflow'u **Actions** sekmesinden manuel olarak da tetikleyebilirsin.
 
 ## Etik sorumluluk reddi
 
-Bu proje yalnızca **herkese açık** playlistleri izler. Özel playlistlere, kullanıcı hesaplarına ya da Spotify linki olan herkesin zaten göremeyeceği hiçbir veriye erişmez. Birinin müzik zevkini otomatik takip etmenin tuhaf olup olmadığı sorusu terapistine bırakılmıştır.
+Bu proje yalnızca **herkese açık** playlistleri izler. Özel playlistlere, kullanıcı hesaplarına ya da Spotify linki olan herkesin zaten göremeyeceği hiçbir veriye zaten erişemez. Birinin müzik zevkini otomatik olarak takip etmek tuhaf mı? Bence tuhaf, ama yalnız olmadığımı biliyorum.
