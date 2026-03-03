@@ -1,4 +1,4 @@
-# stalkify-but-legal
+# Stalkify-But-Legal
 
 A Python service that watches public Spotify playlists for new track additions and sends you a Telegram notification the moment something gets added. Runs automatically every 30 minutes via GitHub Actions, costs nothing, and lives rent-free in your head — just like the person whose playlists you're watching.
 
