@@ -163,8 +163,6 @@ This project only monitors **public** playlists. It does not access private play
 
 # Stalkify-Legal-But-Maybe-Unethical
 
-> Birinin Spotify playlistlerini takip ediyorsun çünkü meraklısın, creep değilsin. Muhtemelen.
-
 Herkese açık Spotify playlistlerini izleyen ve yeni bir şarkı eklendiği anda sana Telegram bildirimi gönderen bir Python servisi. GitHub Actions üzerinden 30 dakikada bir otomatik çalışır, ücretsizdir ve Genius veya Spotify adamlarını peşime takmadığı sürece çalışacak.
 
 ---
