@@ -62,6 +62,17 @@ def send_new_track_notification(track: Track, playlist_name: str) -> None:
     _send(text)
 
 
+def send_analysis_notification(analysis: str) -> None:
+    text = "\n".join(
+        [
+            "🧠 *Analiz*",
+            "",
+            _escape(analysis),
+        ]
+    )
+    _send(text)
+
+
 def send_error_notification(error_message: str) -> None:
     text = "\n".join(
         [

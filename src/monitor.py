@@ -8,8 +8,14 @@ from src.database import (
     save_tracks,
     update_snapshot_id,
 )
+from src.genius import get_lyrics
+from src.groq_client import analyze_track
 from src.spotify import SpotifyClient
-from src.telegram import send_error_notification, send_new_track_notification
+from src.telegram import (
+    send_analysis_notification,
+    send_error_notification,
+    send_new_track_notification,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -92,6 +98,18 @@ def _check_playlist(client: SpotifyClient, playlist: dict) -> None:
     for track in new_tracks:
         send_new_track_notification(track, playlist_name)
         time.sleep(1)  # Telegram rate limit: 1 message/second per chat
+
+        try:
+            primary_artist = track.artist_names[0] if track.artist_names else ""
+            lyrics = get_lyrics(track.track_name, primary_artist)
+            analysis = analyze_track(track.track_name, primary_artist, lyrics)
+            if analysis:
+                send_analysis_notification(analysis)
+                time.sleep(1)
+        except Exception:
+            logger.warning(
+                "Analysis failed for '%s' — skipping.", track.track_name, exc_info=True
+            )
 
     save_tracks(new_tracks, playlist_id)
     update_snapshot_id(playlist_id, api_snapshot)

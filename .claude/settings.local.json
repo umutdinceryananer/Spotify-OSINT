@@ -8,7 +8,9 @@
       "WebFetch(domain:community.spotify.com)",
       "Bash(git -C \"C:\\\\Users\\\\umyana\\\\OneDrive - SAS\\\\Desktop\\\\stalkify-but-legal\" status)",
       "Bash(.venv/Scripts/python -c \":*)",
-      "Bash(.venv/Scripts/python:*)"
+      "Bash(.venv/Scripts/python:*)",
+      "WebFetch(domain:happi.dev)",
+      "WebFetch(domain:happi.readme.io)"
     ]
   }
 }
