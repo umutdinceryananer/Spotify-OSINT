@@ -120,49 +120,54 @@ class SpotifyClient:
                 browser.close()
                 return []
 
-            # Scroll incrementally to trigger virtual-scroll loading
+            # Scroll and collect data in the same loop.
+            # Spotify uses virtual scroll: rows leaving the viewport are removed
+            # from the DOM, so the row count stays roughly constant. Staleness
+            # is detected by whether new track IDs were found, not by DOM count.
             stale_rounds = 0
-            previous_count = 0
-            while stale_rounds < 3:
+            while stale_rounds < 5:
                 rows = page.query_selector_all('[data-testid="tracklist-row"]')
-                if len(rows) == previous_count:
-                    stale_rounds += 1
-                else:
-                    stale_rounds = 0
-                    previous_count = len(rows)
-                if rows:
-                    rows[-1].scroll_into_view_if_needed()
-                page.wait_for_timeout(800)
+                new_found = False
 
-            # Extract track data from all loaded rows
-            rows = page.query_selector_all('[data-testid="tracklist-row"]')
-            for row in rows:
-                track_link = row.query_selector('a[href*="/track/"]')
-                if not track_link:
-                    continue
+                for row in rows:
+                    track_link = row.query_selector('a[href*="/track/"]')
+                    if not track_link:
+                        continue
 
-                href = track_link.get_attribute("href") or ""
-                track_id = href.split("/track/")[-1].split("?")[0]
-                if not track_id or track_id in seen_ids:
-                    continue
-                seen_ids.add(track_id)
+                    href = track_link.get_attribute("href") or ""
+                    track_id = href.split("/track/")[-1].split("?")[0]
+                    if not track_id or track_id in seen_ids:
+                        continue
 
-                track_name = track_link.inner_text().strip()
-                artist_links = row.query_selector_all('a[href*="/artist/"]')
-                artist_names = [a.inner_text().strip() for a in artist_links]
-                album_link = row.query_selector('a[href*="/album/"]')
-                album_name = album_link.inner_text().strip() if album_link else ""
+                    seen_ids.add(track_id)
+                    new_found = True
 
-                tracks.append(
-                    Track(
-                        track_id=track_id,
-                        track_name=track_name,
-                        artist_names=artist_names,
-                        album_name=album_name,
-                        spotify_url=f"{self._WEB_BASE}/track/{track_id}",
-                        added_at=None,
+                    track_name = track_link.inner_text().strip()
+                    artist_links = row.query_selector_all('a[href*="/artist/"]')
+                    artist_names = [a.inner_text().strip() for a in artist_links]
+                    album_link = row.query_selector('a[href*="/album/"]')
+                    album_name = album_link.inner_text().strip() if album_link else ""
+
+                    tracks.append(
+                        Track(
+                            track_id=track_id,
+                            track_name=track_name,
+                            artist_names=artist_names,
+                            album_name=album_name,
+                            spotify_url=f"{self._WEB_BASE}/track/{track_id}",
+                            added_at=None,
+                        )
                     )
+
+                stale_rounds = 0 if new_found else stale_rounds + 1
+                # Scroll via JavaScript to avoid stale element handle errors.
+                # Virtual scroll removes rows from the DOM while we iterate,
+                # so Python-held references become detached. JS re-queries fresh.
+                page.evaluate(
+                    "const r = document.querySelectorAll('[data-testid=\"tracklist-row\"]');"
+                    "if (r.length) r[r.length - 1].scrollIntoView({block: 'end'});"
                 )
+                page.wait_for_timeout(1000)
 
             browser.close()
 
