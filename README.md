@@ -12,7 +12,8 @@ A Python service that watches public Spotify playlists for new track additions a
 2. If the snapshot hasn't changed since the last run, it does nothing (no browser, no cost, no drama).
 3. If it has changed, it launches a headless Chromium browser (Playwright) to scrape the new tracks from the Spotify web player — because Spotify removed public track access from their API in early 2026.
 4. Sends a Telegram notification for each new track.
-5. Saves everything to a Supabase (PostgreSQL) database.
+5. Scrapes the track's lyrics from Genius and sends them to Groq (llama-3.3-70b-versatile) for a short emotional analysis, delivered as a second Telegram message.
+6. Saves everything to a Supabase (PostgreSQL) database.
 
 ---
 
@@ -22,6 +23,7 @@ A Python service that watches public Spotify playlists for new track additions a
 - A [Spotify Developer](https://developer.spotify.com/dashboard) app (free)
 - A [Supabase](https://supabase.com) project (free tier is enough)
 - A Telegram bot (via [@BotFather](https://t.me/BotFather))
+- A [Groq](https://console.groq.com) API key (free)
 - A GitHub account (for the automated workflow)
 
 ---
@@ -106,6 +108,7 @@ SPOTIFY_CLIENT_SECRET=your_client_secret
 DATABASE_URL=your_supabase_session_pooler_url
 TELEGRAM_BOT_TOKEN=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
+GROQ_API_KEY=your_groq_api_key
 ```
 
 ### 7. Add playlists to monitor
@@ -146,6 +149,7 @@ Add the following secrets to your GitHub repository under **Settings → Secrets
 | `DATABASE_URL` | Supabase session pooler URL |
 | `TELEGRAM_BOT_TOKEN` | From BotFather |
 | `TELEGRAM_CHAT_ID` | Your Telegram chat ID |
+| `GROQ_API_KEY` | From console.groq.com |
 
 You can also trigger the workflow manually from the **Actions** tab.
 
@@ -173,7 +177,8 @@ Herkese açık Spotify playlistlerini izleyen ve yeni bir şarkı eklendiği and
 2. Snapshot son çalıştırmadan beri değişmemişse hiçbir şey yapmaz (tarayıcı açılmaz, işlem olmaz).
 3. Değiştiyse headless Chromium tarayıcı (Playwright) açarak Spotify web playerdan yeni şarkıları çeker — Spotify 2026 başında herkese açık playlist erişimini API'den kaldırdığı için.
 4. Her yeni şarkı için Telegram bildirimi gönderir.
-5. Her şeyi Supabase (PostgreSQL) veritabanına kaydeder.
+5. Genius'tan şarkı sözlerini çekip Groq'a (llama-3.3-70b-versatile) göndererek kısa bir duygusal analiz üretir, ikinci bir Telegram mesajı olarak iletir.
+6. Her şeyi Supabase (PostgreSQL) veritabanına kaydeder.
 
 ---
 
@@ -183,6 +188,7 @@ Herkese açık Spotify playlistlerini izleyen ve yeni bir şarkı eklendiği and
 - [Spotify Developer](https://developer.spotify.com/dashboard) uygulaması (ücretsiz)
 - [Supabase](https://supabase.com) projesi (ücretsiz tier yeterli)
 - Telegram botu ([@BotFather](https://t.me/BotFather) üzerinden)
+- [Groq](https://console.groq.com) API key'i (ücretsiz)
 - GitHub hesabı (otomatik çalıştırma için)
 
 ---
@@ -267,6 +273,7 @@ SPOTIFY_CLIENT_SECRET=spotify_client_secret
 DATABASE_URL=supabase_session_pooler_url
 TELEGRAM_BOT_TOKEN=bot_token
 TELEGRAM_CHAT_ID=chat_id
+GROQ_API_KEY=groq_api_key
 ```
 
 ### 7. Takip edilecek playlistleri ekle
@@ -307,6 +314,7 @@ GitHub reposunda **Settings → Secrets and variables → Actions** altına şu 
 | `DATABASE_URL` | Supabase session pooler URL |
 | `TELEGRAM_BOT_TOKEN` | BotFather'dan |
 | `TELEGRAM_CHAT_ID` | Telegram chat ID'n |
+| `GROQ_API_KEY` | console.groq.com'dan |
 
 Workflow'u **Actions** sekmesinden manuel olarak da tetikleyebilirsin.
 
