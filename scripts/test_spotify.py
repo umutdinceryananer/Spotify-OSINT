@@ -1,6 +1,6 @@
 """
-Integration test for Spotify playlist track fetching.
-Usage: python scripts/test_spotify.py <playlist_id>
+Integration test for Playwright-based playlist track scraping.
+Usage: python -m scripts.test_spotify <playlist_id>
 """
 
 import logging
@@ -24,8 +24,6 @@ def main() -> None:
     from src.spotify import SpotifyClient
 
     client = SpotifyClient()
-    client.authenticate()
-
     tracks = client.get_playlist_tracks(playlist_id)
 
     if not tracks:
@@ -47,7 +45,7 @@ def main() -> None:
     if len(tracks) > 5:
         print(f"... and {len(tracks) - 5} more tracks.\n")
 
-    print("All required fields present. Issue 2 Definition of Done: PASSED")
+    print("Issue 2 Playwright Scraping: PASSED")
 
 
 if __name__ == "__main__":
