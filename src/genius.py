@@ -2,7 +2,7 @@ import logging
 import re
 from urllib.parse import quote_plus
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
 
 logger = logging.getLogger(__name__)
 
@@ -16,32 +16,25 @@ def get_lyrics(track_name: str, artist_name: str) -> str | None:
         browser = p.chromium.launch(headless=True)
         try:
             page = browser.new_page()
-
             page.goto(search_url, timeout=15000)
 
-            # Find the first link ending in -lyrics (Genius lyrics URL pattern)
-            lyrics_url = page.evaluate("""() => {
-                const links = Array.from(document.querySelectorAll('a[href]'));
-                const hit = links.find(a =>
-                    a.href.includes('genius.com') && a.href.endsWith('-lyrics')
-                );
-                return hit ? hit.href : null;
-            }""")
-
-            if not lyrics_url:
-                # Wait a bit for JS-rendered results and retry once
-                page.wait_for_timeout(3000)
-                lyrics_url = page.evaluate("""() => {
-                    const links = Array.from(document.querySelectorAll('a[href]'));
-                    const hit = links.find(a =>
-                        a.href.includes('genius.com') && a.href.endsWith('-lyrics')
-                    );
-                    return hit ? hit.href : null;
-                }""")
-
-            if not lyrics_url:
+            # Wait for JS-rendered song results (links ending in -lyrics)
+            try:
+                page.wait_for_selector('a[href$="-lyrics"]', timeout=8000)
+            except PlaywrightTimeoutError:
                 logger.info("No Genius results for '%s' by '%s'.", track_name, artist_name)
                 return None
+
+            link = page.query_selector('a[href$="-lyrics"]')
+            if not link:
+                logger.info("No Genius results for '%s' by '%s'.", track_name, artist_name)
+                return None
+
+            lyrics_url = link.get_attribute("href")
+            if not lyrics_url:
+                return None
+            if not lyrics_url.startswith("http"):
+                lyrics_url = f"https://genius.com{lyrics_url}"
 
             logger.info("Fetching lyrics from %s", lyrics_url)
             page.goto(lyrics_url, timeout=15000)
