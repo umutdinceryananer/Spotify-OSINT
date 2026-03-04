@@ -13,14 +13,30 @@ def get_lyrics(track_name: str, artist_name: str) -> str | None:
     search_url = f"https://genius.com/search?q={query}"
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+        context = browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/122.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1280, "height": 720},
+            locale="en-US",
+        )
         try:
-            page = browser.new_page()
+            page = context.new_page()
+            # Hide automation indicators
+            page.add_init_script(
+                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+            )
+
             page.goto(search_url, timeout=15000)
 
-            # Wait for JS-rendered song results (links ending in -lyrics)
             try:
-                page.wait_for_selector('a[href$="-lyrics"]', timeout=8000)
+                page.wait_for_selector('a[href$="-lyrics"]', timeout=10000)
             except PlaywrightTimeoutError:
                 logger.info("No Genius results for '%s' by '%s'.", track_name, artist_name)
                 return None
@@ -55,4 +71,5 @@ def get_lyrics(track_name: str, artist_name: str) -> str | None:
             logger.warning("Genius scraping failed for '%s'.", track_name, exc_info=True)
             return None
         finally:
+            context.close()
             browser.close()
