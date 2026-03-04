@@ -194,34 +194,15 @@ You can also trigger the workflow manually from the **Actions** tab.
 
 People frequently put themselves in situations where they feel compelled to watch what the other side will do next. In those moments, anxiety and paranoia push you toward calculating the probability of things that will never happen. I've caught myself doing that math more times than I'd like to admit.
 
-If I had to draw an analogy, I think of those moments as a corridor — one with an entrance and an exit but no doors. You can stand still in that corridor. Motionless, curled up, waiting for time to pass. I consider that a disservice one does to oneself. During this process, I chose as my north star a line by John Milton that is far more radical than anything I could articulate, and perhaps easier to understand: *"Better to reign in Hell, than to serve in Heaven."*
+If I had to draw an analogy, I think of those moments as a corridor, one with no entrance, no exit, and not even a door in sight. You can stand still in that corridor. Motionless, curled up, waiting for time to pass. I consider that a disservice one does to oneself. During this process, I chose as my north star a line by John Milton that is far more radical than anything I could articulate, and perhaps easier to understand: *"Better to reign in Hell, than to serve in Heaven."*
 
-For a long time, in moments like these, I chose to stand still — contradicting my own nature. Maybe it was a defense mechanism, maybe an instinctive reflex. Then I found myself writing these lines of code with Claude, thinking: "If I can't leave this corridor for a while, I might as well make the most of it."
+For a long time, in moments like these, I chose to stand still, contradicting my own nature. Maybe it was a defense mechanism, maybe an instinctive reflex. Then I found myself writing these lines of code with Claude, thinking: "If I can't leave this corridor for a while, I might as well make the most of it."
 
-When I first encountered software, I thought it was a set of tasks that would earn me money and that I'd carry out for the rest of my life. The person who changed that perspective was my father. Among millions who cannot exist without consuming, he is one of those rare individuals who cannot exist without creating. After he suggested I approach software as a craft, I made my first open-source attempts. I certainly can't say I've "mastered" it, but I can say I've at least gained the freedom to choose what I want.
+When I first encountered software, I thought it was a set of tasks that would earn me money and that I'd carry out for the rest of my life. The person who changed that perspective was my father. Among millions who cannot exist without consuming, he is one of those rare individuals who cannot exist without creating. After he suggested I approach software as a craft, I made my first open-source attempts. I certainly can't say I've mastered it, but I can say I've at least gained the freedom to choose what I want.
 
-As time went on, realizing I could solve my everyday problems through code happened only recently. Inside this pile of code — which you might rightfully call nonsense — I was left alone with questions I asked myself during the time I spent in that corridor, the one whose door or doors will eventually appear: "Can I at least do something?"
+This repo is the product of time spent in that corridor. The answer to a question I kept asking myself: "Can I at least do something?"
 
-Some of you might find it perverse. Some of you might look at the code above and say "this is unethical." But as someone who spent too long caring about what others think and realized too late how pointless that is, I chose to keep this repo open to everyone who visits.
-
----
-
-I want to examine the "perversion" and "unethical" arguments separately.
-
-Under the label of **perversion**, you may not approve of what's being done here — and that is your opinion. But if you've read this far, you're either going to use this repo or you're genuinely staring at the screen thinking "what is this idiot going on about?" For those here for the first option, I'd point you to the setup notes below. For those who chose "idiot" and kept reading: I still have some time left in the corridor. Maybe I can't see the door, maybe there is no door yet. But I'm enjoying the moment I'm in. If you classify that as idiotic, deranged, perverted, or similar — I owe you a thank you, and beyond that I have nothing to say.
-
-On the other hand, if you see this through the lens of **ethics**, I'd like to share a fragment I tweezered out of the definition:
-
-*"Ethics: the practice of thinking about right conduct, being a good person, and human values."*
-
-And you can already see the answer. My practice of thinking about human values, in its most superficial and basic form these days, is to produce something concrete rather than wait in the fetal position for the corridor to pass. I should underline: I cherry-picked the part of the definition that suits me. I still have rough thoughts about the "right conduct" and "being a good person" parts.
-
----
-
-Without dragging this out further: the corridor and its potential doors I'm talking about have nothing to do with real people or institutions — but whether you believe that or not is entirely up to you.
-
-Before saying goodbye, in keeping with the concept, let me squeeze in a song and leave you alone with this project we built with Claude (~90% Claude, if we're being honest).
-
+Before saying goodbye, in keeping with the concept, let me squeeze in a song and leave you alone with the project.
 [Çilekeş - Y.O.K.](https://www.youtube.com/watch?v=s9KTAxJGqks)
 
 Take care.
@@ -237,7 +218,7 @@ Take care.
 ![GitHub Actions](https://img.shields.io/badge/Automation-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
 ![Spotify](https://img.shields.io/badge/Spotify-OSINT-1DB954?logo=spotify&logoColor=white)
 
-Herkese açık Spotify playlistlerini izleyen ve yeni bir şarkı eklendiği anda sana Telegram bildirimi gönderen bir Python servisi. GitHub Actions üzerinden 30 dakikada bir otomatik çalışır, ücretsizdir ve kimseyi peşime takmadığı sürece çalışacak.
+Herkese açık Spotify playlistlerini izleyen ve yeni bir şarkı eklendiği anda sana Telegram bildirimi gönderen bir Python servisi. GitHub Actions üzerinden 30 dakikada bir otomatik çalışır, ücretsizdir ve Spotify peşime adam takmadığı sürece de çalışmaya devam edecek.
 
 ---
 
@@ -424,36 +405,17 @@ Workflow'u **Actions** sekmesinden manuel olarak da tetikleyebilirsin.
 
 ## Etik sorumluluk reddi
 
-İnsan sıklıkla kendisini, karşı tarafın ne yapacağını izlemek mecburiyetinde hissedeceği durumlara sokar. Böyle zamanlarda vesvese ve kuruntu, kişiyi olmayacak şeylerin ihtimalini hesaplamaya iter. Ben kendimi defalarca böyle ihtimallerin hesabını yaparken buldum.
+İnsan sıklıkla kendisini, karşı tarafın ne yapacağını izlemek mecburiyetinde hissedeceği durumlara sokar. Böyle zamanlarda vesvese ve kuruntu, kişiyi olmayacak şeylerin ihtimalini hesaplamaya iter.
 
-Analoji yapmam gerekirse bu anları, girişi, çıkışı ve hiç hatta kapısı bile bulunmayan bir koridor gibi değerlendiriyorum. Koridorda durabilirsiniz. Hiç hareket etmeden, cenin pozisyonunda, zamanın geçmesini bekleyerek. Bana göre bu insanın kendisine yaptığı bir haksızlık. John Milton'ın benden çok daha radikal ve belki de anlaşılması daha kolay bir söylemiyle: *"Cennette hizmet etmektense, cehennemde hükmetmeyi yeğlerim."* Bu sözü bu süreçte kendime kutup yıldızı olarak seçtim diyebilirim.
+Bu anları girişi, çıkışı ve hiç hatta kapısı bile bulunmayan bir koridor gibi değerlendiriyorum. Koridorda durabilirsiniz, hareketsiz, cenin pozisyonunda, zamanın geçmesini bekleyerek. Bana göre bu insanın kendisine yaptığı bir haksızlık. Milton'ın sözüyle: *"Cennette hizmet etmektense, cehennemde hükmetmeyi yeğlerim."*
 
-Uzun bir süre öncesine kadar böyle anlarda, kendime de tezat oluşturacak şekilde, hareketsiz şekilde koridorda durmayı tercih ediyordum. Bilmiyorum, belki savunma mekanizması, belki de içgüdüsel bir refleks. Sonra kendimi "madem bu koridordan belli bir süreliğine çıkamıyorum, o zaman tadını çıkarayım" diyerek bu kodları Claude ile yazarken buldum.
+Uzun süre ben de tam tersini yapıyordum. Savunma mekanizması mıydı, içgüdüsel bir refleks miydi, bilmiyorum. Sonra kendimi "madem çıkamıyorum, tadını çıkarayım" diyerek bu kodları yazarken buldum.
 
-Ben yazılımla ilk tanıştığımda bunun bana para kazandıracak ve hayatımın sonuna kadar yapacağım bir görevler bütünü olduğunu sanıyordum. Bu bakış açımı değiştiren kişi babam oldu. Kendisi, tüketmeden var olamayan milyonların arasında üretmeden var olamayan ve eşine benzerine zor rastlanan birisidir. Onun bana yazılıma bir zanaat olarak yaklaşmamı önermesinin ardından ilk açık kaynak denemelerimi yaptım. Kesinlikle "ustalaştım" diyemem, ama en azından ne istediğimi seçme özgürlüğüme kavuştum diyebilirim.
+Yazılımla ilk tanıştığımda bunu para kazanmanın ve ömür boyu sürecek görevler bütününün aracı olarak görüyordum. Babam bana zanaat olarak yaklaşmayı öğretti. O, tüketmeden var olamayan milyonların arasında üretmeden var olamayan, eşine az rastlanan birisi. İlk açık kaynak denemelerimi onun etkisiyle yaptım.
 
-Gel zaman git zaman, gündelik problemlerimi yazılımla çözebileceğimi fark etmem neredeyse kısa bir süre öncesine dayanıyor. Bu gördüğünüz, deli saçması diyebileceğiniz kod yığınının içinde, aslında zamanla kapısı ya da kapıları belirecek olan o koridorda geçirdiğim sürede "en azından bir şeyler yapabilir miyim?" diye kendime sorduğum sorularla baş başa kaldım.
+Bu repo da o koridorda geçirilen vaktin ürünü. "En azından bir şeyler yapabilir miyim?" sorusunun cevabı.
 
-Bazılarınıza sapkınca gelebilir. Belki bazılarınız yukarıdaki kod satırları için "etik değil" diyecektir. Ama başkalarının ne düşündüğünü çok düşünen ve bunun anlamsızlığını geç kavrayan birisi olarak kararımı, bu repoyu buraya gelecek herkese açık tutmaktan yana kullandım.
-
----
-
-Bu sapkınlık ve etik dışılık argümanlarını ayrı ayrı incelemek istiyorum.
-
-**Sapkınlık** adı altında burada yapılan şeyleri tasvip etmeyebilirsiniz ve bu sizin fikrinizdir. Ancak buraya kadar okuduysanız ya bu repoyu kullanacaksınız, ya da gerçekten "bu dingil ne anlatıyor?" diyerek ekrana bakıyorsunuz. İlki için gelenler, bu satırların üstündeki kurulum notlarına bakabilir. "Dingil" diye okumaya devam edenler için ise şunu söyleyebilirim: benim koridorda biraz daha geçireceğim vakit var. Belki kapıyı göremiyorum, belki de henüz ortada bir kapı yok. Ama olduğum anın tadını çıkarıyorum. Bunu dingil, mal, sapık ve benzeri sınıflandırmalarla karşılıyorsanız, size bir teşekkürü borç bilirim ve ötesinde bir şey söyleyemem.
-
-**Etik** meselesine gelince, tanımın içinden cımbızla çektiğim bir kısmı paylaşmak istiyorum:
-
-*"Etik: doğru davranışlarda bulunmak, iyi bir insan olmak ve insani değerler hakkında düşünme pratiği."*
-
-Cevabı aslında görüyorsunuz. Benim insani değerler hakkında düşünme pratiğim, en yüzeysel ve basit haliyle, bu günlerin cenin pozisyonunda geçmesini beklemek yerine somut bir şeyler çıkarmak. Altını çizmek isterim: ben tanımdan işime gelen kısmı çekip aldım. Kavramın "doğru davranışlarda bulunmak" ve "iyi bir insan olmak" kısımlarıyla ilgili hala pürüzlü düşüncelerim var.
-
----
-
-Daha fazla uzatmadan belirteyim: burada bahsettiğim koridor ve olası kapılar gerçek kişi ve kurumlarla ilgili değil, ama buna inanmak ya da inanmamak tamamen sizin inisiyatifinizde.
-
-Veda etmeden önce, konsept gereği araya bir şarkı sıkıştırayım ve sizi Claude ile geliştirdiğimiz (%90'ı falan Claude) proje ile baş başa bırakayım.
-
+Veda etmeden araya bir şarkı sıkıştırayım, konsept gereği.
 [Çilekeş - Y.O.K.](https://www.youtube.com/watch?v=s9KTAxJGqks)
 
 Kalın sağlıcakla.
