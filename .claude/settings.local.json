@@ -13,7 +13,11 @@
       "WebFetch(domain:happi.readme.io)",
       "WebFetch(domain:pypi.org)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:lrclib.net)"
+      "WebFetch(domain:lrclib.net)",
+      "Bash(python -m pytest tests/test_report.py -v)",
+      "Bash(python3 -m venv /tmp/osint_test)",
+      "Bash(source /tmp/osint_test/bin/activate)",
+      "Bash(pip install pytest groq requests python-dotenv psycopg2-binary tenacity playwright)"
     ]
   }
 }

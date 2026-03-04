@@ -28,14 +28,15 @@ def analyze_track(track_name: str, artist_name: str, lyrics: str | None) -> str 
         f'"{track_name}" adlı şarkı "{artist_name}" sanatçısına ait. '
         f"Bu şarkı bir playliste yeni eklendi.\n\n"
         f"{lyrics_section}\n\n"
-        "Bu şarkının duygusal içeriğini ve sözlerini analiz ederek, "
-        "bu şarkıyı playliste ekleyen kişinin o an nasıl hissediyor olabileceğini "
-        "Türkçe olarak açıkla. Tam olarak 2 cümle yaz. "
-        "Yorumunu yaparken pesimist bir bakış açısı benimse: duygulardan yara almış, "
-        "olayların hep karanlık tarafını gören biri gibi konuş. "
-        "Kaba olma ama umursamamazlık değil, gerçekçi bir karamsarlık olsun. "
-        "Klişelerden kaçın, doğal bir dil kullan. "
-        '"Bu şarkıyı eklediği için..." veya "Bu kişi şu an..." gibi bir girişle başla.'
+        "Bu şarkıyı playliste ekleyen kişinin o an nasıl hissediyor olabileceğini analiz et.\n\n"
+        "Kurallar:\n"
+        "- Yanıtını YALNIZCA Türkçe yaz. Başka dilde kesinlikle kelime kullanma.\n"
+        "- Tam olarak 2 cümle yaz.\n"
+        "- Pesimist ama gerçekçi bir bakış açısı benimse: duygulardan yara almış, "
+        "olayların karanlık tarafını gören biri gibi konuş.\n"
+        "- Kaba olma, umursamamazlık değil gerçekçi karamsarlık olsun.\n"
+        "- Klişelerden kaçın, günlük konuşma dili kullan.\n"
+        '- "Bu şarkıyı eklediği için..." veya "Bu kişi şu an..." gibi bir girişle başla.'
     )
 
     client = Groq(api_key=config.groq_api_key)

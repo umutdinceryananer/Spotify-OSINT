@@ -3,10 +3,6 @@
 import logging
 from datetime import timezone, timedelta
 
-from groq import Groq
-
-from src.config import config
-
 logger = logging.getLogger(__name__)
 
 _TZ_ISTANBUL = timezone(timedelta(hours=3))
@@ -68,6 +64,9 @@ def generate_time_report(patterns: dict, playlist_name: str) -> str | None:
 
     Returns None if GROQ_API_KEY is not configured.
     """
+    from groq import Groq
+    from src.config import config
+
     if not config.groq_api_key:
         logger.warning("GROQ_API_KEY not set — skipping time report.")
         return None
@@ -83,10 +82,14 @@ def generate_time_report(patterns: dict, playlist_name: str) -> str | None:
         f'En yoğun saat: {patterns["peak_hour"]:02d}:00\n'
         f'En aktif zaman dilimi: {patterns["most_active_slot"]}\n\n'
         "Bu verilere dayanarak, playlist sahibinin yaşam düzeni ve "
-        "alışkanlıkları hakkında Türkçe bir yorum yap. Tam olarak 2-3 cümle yaz. "
-        "Pesimist ama gerçekçi bir bakış açısı benimse. "
-        "Klişelerden kaçın, doğal bir dil kullan. "
-        "Saatleri ve zaman dilimlerini yorumuna dahil et."
+        "alışkanlıkları hakkında bir yorum yap.\n\n"
+        "Kurallar:\n"
+        "- Yanıtını YALNIZCA Türkçe yaz. Başka dilde kesinlikle kelime kullanma.\n"
+        "- Tam olarak 2-3 cümle yaz.\n"
+        "- Pesimist ama gerçekçi bir bakış açısı benimse.\n"
+        "- Klişelerden kaçın, günlük konuşma dili kullan.\n"
+        "- Saatleri ve zaman dilimlerini yorumuna dahil et.\n"
+        "- Kısa ve öz ol, gereksiz tekrar yapma."
     )
 
     client = Groq(api_key=config.groq_api_key)
