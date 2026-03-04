@@ -10,7 +10,8 @@
       "Bash(.venv/Scripts/python -c \":*)",
       "Bash(.venv/Scripts/python:*)",
       "WebFetch(domain:happi.dev)",
-      "WebFetch(domain:happi.readme.io)"
+      "WebFetch(domain:happi.readme.io)",
+      "WebFetch(domain:pypi.org)"
     ]
   }
 }
